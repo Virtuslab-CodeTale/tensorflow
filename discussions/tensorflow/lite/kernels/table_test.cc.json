@@ -97,5 +97,38 @@
     "commit" : "2cef2d16bf119cd491865dd54d5004345fc5d5e3",
     "line" : 78,
     "diffHunk" : "@@ -1,1 +76,80 @@    return range_sum / 256.0f;\n  } else {\n    return range_sum / 512.0f;\n  }\n}"
+  },
+  {
+    "id" : "bad4b843-1888-41cd-983d-7624645649a8",
+    "prId" : 45342,
+    "prUrl" : "https://github.com/tensorflow/tensorflow/pull/45342#pullrequestreview-661154343",
+    "prSource" : "GitHub",
+    "comments" : [
+      {
+        "id" : "1319be7e-ef67-47eb-bc48-9489350da6a1",
+        "parentId" : null,
+        "authorId" : "c14be44a-1748-4d93-a075-2bb17587c151",
+        "body" : "Could you please add a note/comment why this is 512 while LUT size is 513?",
+        "createdAt" : "2021-05-14T17:50:35Z",
+        "updatedAt" : "2021-05-14T18:09:45Z",
+        "lastEditedBy" : "c14be44a-1748-4d93-a075-2bb17587c151",
+        "tags" : [
+        ]
+      },
+      {
+        "id" : "fbce5d71-07ac-4a7e-879a-562a3b5b7701",
+        "parentId" : "1319be7e-ef67-47eb-bc48-9489350da6a1",
+        "authorId" : "5449a69d-7f99-4886-9908-47affbac272a",
+        "body" : "I extended the comment to explain the reason.",
+        "createdAt" : "2021-05-17T16:10:14Z",
+        "updatedAt" : "2021-05-17T16:10:14Z",
+        "lastEditedBy" : "5449a69d-7f99-4886-9908-47affbac272a",
+        "tags" : [
+        ]
+      }
+    ],
+    "commit" : "2cef2d16bf119cd491865dd54d5004345fc5d5e3",
+    "line" : 78,
+    "diffHunk" : "@@ -1,1 +76,80 @@    return range_sum / 256.0f;\n  } else {\n    return range_sum / 512.0f;\n  }\n}"
   }
 ]
