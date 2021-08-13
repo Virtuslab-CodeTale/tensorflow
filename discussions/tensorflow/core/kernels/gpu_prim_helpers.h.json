@@ -42,5 +42,38 @@
     "commit" : "7ca19ec18f0320d395e289b596046d8aaa708a55",
     "line" : 7,
     "diffHunk" : "@@ -1,1 +140,144 @@template <typename InputIteratorT, typename OutputIteratorT,\n          typename OffsetIteratorT, typename ReduceOp, typename T>\nStatus GpuSegmentedReduce(\n    OpKernelContext* context, int num_segments, ReduceOp reduce_op,\n    const T& initial_value,"
+  },
+  {
+    "id" : "6b47b823-5067-4944-b660-0abecd9f7e6f",
+    "prId" : 51094,
+    "prUrl" : "https://github.com/tensorflow/tensorflow/pull/51094#pullrequestreview-726964639",
+    "prSource" : "GitHub",
+    "comments" : [
+      {
+        "id" : "e067db7a-6c81-440c-8e65-744a8d8af8ff",
+        "parentId" : null,
+        "authorId" : "05c2b6c1-8a55-4dc9-ae76-02172416ea90",
+        "body" : "Would setting num_bits to 1 also work instead of having this logic? It would simplify the logic.",
+        "createdAt" : "2021-08-10T23:41:04Z",
+        "updatedAt" : "2021-08-10T23:49:21Z",
+        "lastEditedBy" : "05c2b6c1-8a55-4dc9-ae76-02172416ea90",
+        "tags" : [
+        ]
+      },
+      {
+        "id" : "76b73acc-b43f-4270-a172-2d11170740f0",
+        "parentId" : "e067db7a-6c81-440c-8e65-744a8d8af8ff",
+        "authorId" : "fe150b7b-80e3-40ce-88bd-077c51873903",
+        "body" : "I was going to do that but realized that `num_bits=0` does not necessarily mean that all keys are zero, and if they're not then forcing `num_bits=1` gives a different result (e.g., the `gpu_prim_helpers_test.cu.cc` test will fail).",
+        "createdAt" : "2021-08-11T01:16:25Z",
+        "updatedAt" : "2021-08-11T01:16:25Z",
+        "lastEditedBy" : "fe150b7b-80e3-40ce-88bd-077c51873903",
+        "tags" : [
+        ]
+      }
+    ],
+    "commit" : "e116bc9c17f29b80bc9ced801ccb8b0fe18e155f",
+    "line" : 12,
+    "diffHunk" : "@@ -1,1 +59,63 @@                    Tindex* indices_out, int num_bits = sizeof(Tkey) * 8) {\n  if (size == 0) return Status::OK();\n  if (num_bits == 0) {\n    // Workaround for CUB failing when begin_bit = end_bit = 0 (e.g., when all\n    // keys are 0, so no sorting is needed)."
   }
 ]

@@ -1,0 +1,35 @@
+[
+  {
+    "id" : "32c4e3fb-3543-4086-895b-6094e898eb2f",
+    "prId" : 51094,
+    "prUrl" : "https://github.com/tensorflow/tensorflow/pull/51094#pullrequestreview-726964679",
+    "prSource" : "GitHub",
+    "comments" : [
+      {
+        "id" : "0e401920-445e-4db2-a293-7049089c41a1",
+        "parentId" : null,
+        "authorId" : "05c2b6c1-8a55-4dc9-ae76-02172416ea90",
+        "body" : "Why is checking `noutput > 1` necessary? Seems to workaround the `num_bits=0` issue, but you've fixed that in this PR.",
+        "createdAt" : "2021-08-10T23:44:33Z",
+        "updatedAt" : "2021-08-10T23:49:21Z",
+        "lastEditedBy" : "05c2b6c1-8a55-4dc9-ae76-02172416ea90",
+        "tags" : [
+        ]
+      },
+      {
+        "id" : "21e2c3a5-d337-4fac-b4b0-2e814089d02c",
+        "parentId" : "0e401920-445e-4db2-a293-7049089c41a1",
+        "authorId" : "fe150b7b-80e3-40ce-88bd-077c51873903",
+        "body" : "This is just an optimization that avoids unnecessary temporaries and copies in this case.",
+        "createdAt" : "2021-08-11T01:16:31Z",
+        "updatedAt" : "2021-08-11T01:16:31Z",
+        "lastEditedBy" : "fe150b7b-80e3-40ce-88bd-077c51873903",
+        "tags" : [
+        ]
+      }
+    ],
+    "commit" : "e116bc9c17f29b80bc9ced801ccb8b0fe18e155f",
+    "line" : 25,
+    "diffHunk" : "@@ -1,1 +795,799 @@    Tensor tmp_sorted_indices;\n    Tensor tmp_sorted_segment;\n    if (noutput > 1) {\n      // Sort indices and permute segments.\n      OP_REQUIRES_OK(context, context->allocate_temp("
+  }
+]
